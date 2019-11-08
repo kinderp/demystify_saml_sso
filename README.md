@@ -61,7 +61,10 @@ idp instnace user [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp
 In plus, each instance has its own url. Below a summary.
 
 
-
+Url | View | Description |
+------------ | ------------- | -------------
+`/` | views.IndexView | ...
+Content in the first column | Content in the second column | ...
 
 ## trace#481 GET http://localhost:8000/saml2/login/
 
