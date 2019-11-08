@@ -4,6 +4,8 @@ docs, notes, links and adventures about saml sso.
 
 To have a quick idea on how saml sso works, let's take a look at [this useful video](https://www.youtube.com/watch?v=S9BpeOmuEz4&t=661s)
 
+![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/basic_saml.jpg)
+
 ## Lab
 
 We're gonna use this [project](https://github.com/OTA-Insight/djangosaml2idp/tree/master/example_setup) as test lab.
