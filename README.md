@@ -146,8 +146,53 @@ docs, notes, links and adventures about saml sso
             </html>', 
     'url': 'http://localhost:8000/saml2/acs/', 'method': 'POST'}
   ```
-## trace#514 GET /login/?next=/idp/login/process/
+## trace#656 POST http://localhost:8000/saml2/acs/
 
+* [link](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243)
+
+    ```python
+    def assertion_consumer_service(request,
+                               config_loader_path=None,
+                               attribute_mapping=None,
+                               create_unknown_user=None):
+    """SAML Authorization Response endpoint
+    The IdP will send its response to this view, which
+    will process it with pysaml2 help and log the user
+    in using the custom Authorization backend
+    djangosaml2.backends.Saml2Backend that should be
+    enabled in the settings.py
+    """
+    
+        ...
+        ...
+        logger.debug('Trying to authenticate the user. Session info: %s', session_info)
+        user = auth.authenticate(request=request,
+                                 session_info=session_info,
+                                 attribute_mapping=attribute_mapping,
+                                 create_unknown_user=create_unknown_user)
+        if user is None:
+            logger.warning("Could not authenticate user received in SAML Assertion. Session info: %s", session_info)
+            raise PermissionDenied
+
+        auth.login(request, user)
+        _set_subject_id(request.session, session_info['name_id'])
+        logger.debug("User %s authenticated via SSO.", user)
+
+        logger.debug('Sending the post_authenticated signal')
+        post_authenticated.send_robust(sender=user, session_info=session_info)
+
+        # redirect the user to the view where he came from
+        default_relay_state = get_custom_setting('ACS_DEFAULT_REDIRECT_URL',
+                                                 settings.LOGIN_REDIRECT_URL)
+        relay_state = request.POST.get('RelayState', default_relay_state)
+        if not relay_state:
+            logger.warning('The RelayState parameter exists but is empty')
+            relay_state = default_relay_state
+        if not is_safe_url_compat(url=relay_state, allowed_hosts={request.get_host()}):
+            relay_state = settings.LOGIN_REDIRECT_URL
+        logger.debug('Redirecting to the RelayState: %s', relay_state)
+        return HttpResponseRedirect(relay_state)
+    ```
   
   
   
