@@ -122,27 +122,27 @@ docs, notes, links and adventures about saml sso
   (Pdb) http_args
   ```python
   'headers': [('Content-type', 'text/html')], 
-  'data': '<!DOCTYPE html>\n
-           <html>\n  
-                <head>\n    
+  'data': '<!DOCTYPE html>
+           <html>
+                <head>
                     <meta charset="utf-8" />\n  
-                </head>\n  
-                <body onload="document.forms[0].submit()">\n    
-                    <noscript>\n      
-                        <p>\n        
-                        <strong>Note:</strong>\n        
-                            Since your browser does not support JavaScript,\n        
-                            you must press the Continue button once to proceed.\n      
-                        </p>\n    
-                    </noscript>\n    
-                    <form action="http://localhost:8000/saml2/acs/" method="post">\n      
-                        <input type="hidden" name="SAMLResponse" value="PD94bWwgdmVyc....."/>\n      
-                        <input type="hidden" name="RelayState" value="/"/>\n      
-                            <noscript>\n        
-                                <input type="submit" value="Continue"/>\n      
-                            </noscript>\n    
-                    </form>\n  
-               </body>\n
+                </head>
+                <body onload="document.forms[0].submit()">
+                    <noscript>
+                        <p>
+                        <strong>Note:</strong>
+                            Since your browser does not support JavaScript,
+                            you must press the Continue button once to proceed.
+                        </p>
+                    </noscript>
+                    <form action="http://localhost:8000/saml2/acs/" method="post">
+                        <input type="hidden" name="SAMLResponse" value="PD94bWwgdmVyc....."/>
+                        <input type="hidden" name="RelayState" value="/"/>
+                            <noscript>
+                                <input type="submit" value="Continue"/>
+                            </noscript>
+                    </form>
+               </body>
             </html>', 
     'url': 'http://localhost:8000/saml2/acs/', 'method': 'POST'}
   ```
