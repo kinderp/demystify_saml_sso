@@ -79,6 +79,11 @@ Url | View | Description |
 You should se something like that
 
 ![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/wireshark.png)
+
+Just one note to follow saml flow in wireshark and on this README:
+* Each row has an unique id (first wireshark column: `No.`). 
+* So e.g. if `No.`=481 it will be referred here as `#trace481`
+
 ## trace#481 GET http://localhost:8000/saml2/login/
 
 * [link](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L85)
