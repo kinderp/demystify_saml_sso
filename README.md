@@ -1,5 +1,5 @@
 # demystify_saml_sso
-docs, notes, links and adventures about saml sso
+docs, notes, links and adventures about saml sso.
 ## Intro
 
 To have a quick idea on how saml sso works, let's take a look at [this useful video](https://www.youtube.com/watch?v=S9BpeOmuEz4&t=661s)
@@ -8,7 +8,7 @@ To have a quick idea on how saml sso works, let's take a look at [this useful vi
 
 We're gonna use this [project](https://github.com/OTA-Insight/djangosaml2idp/tree/master/example_setup) as test lab.
 
-It gives us a trivial sp and idp implementations that we'll use for test and study saml sso.
+It gives us a trivial sp and idp implementations that we'll use for testing and studying saml sso.
 
 See its [README](https://github.com/OTA-Insight/djangosaml2idp/blob/master/example_setup/README.rst) in order to run those two instances (idp,sp) in a docker env.
 
@@ -59,25 +59,25 @@ See its [README](https://github.com/OTA-Insight/djangosaml2idp/blob/master/examp
 
 sp instance uses [djangosaml2](https://github.com/knaperek/djangosaml2/) urls to provide sp functionalties
 
-idp instnace user [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp) urls to provide idp functionalities
+idp instnace uses [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp) urls to provide idp functionalities
 
 In plus, each instance has its own url. Below a summary.
 
 Url | View | Description |
 ------------ | ------------- | -------------
 `/` |  | ...
-`idp/sso/post/` |  | sso saml entry point view, it accepts auth request (SamlRequest) and redirect to `idp/login/process/` the SamlResponse performer view
+`idp/sso/post/` |  | sso saml entry point view, it accepts auth request (SamlRequest) and redirect that to `idp/login/process/` the SamlResponse performer view
 `idp/sso/redirect/` |  | ...
 `idp/sso/init/` |  | ...
-`idp/login/process/` |  | it performs saml auth process, generating for an input SamlRequest a SamlResponse and redirecting the latter to sp acs url `saml2/acs/`
+`idp/login/process/` |  | it performs saml auth process, generating for an input SamlRequest a SamlResponse and redirecting the latter to the sp acs url `saml2/acs/`
 `idp/login/process_multi_factor/` |  | ...
 `idp/metadata/` |  | ...
 
 
 Url | View | Description |
 ------------ | ------------- | -------------
-`/` | views.IndexView | It's sp root page. If an user is not looged into idp (sso has not been performed yet), it shows a link to `saml2/login/` from where sp will instantiate an auth request towards idp. If an user is already logged into idp (sso already performed) it will show some user's info.
-`saml2/login/` | views.login | This view initiates the SAML2 Authorization handshake. It will create a SAMLRequest and redirect these data to the _idp sso entry page_ `/idp/sso/post`, from there user will be redirected to idp login process page `idp/login/process/` where idp auth process will be performed (an auth SamlResponse will be created and redirected to sp acs `saml2/acs/`). If an user is not logged into idp when contacting `idp/login/process/` it will be before redirected to django idp login page `/login/?next=/idp/login/process/` and after that auth it will be redirected again to `idp/login/process/` and sso will continue (SamlResponse sent to sp acs `saml2/acs/`)
+`/` | views.IndexView | SP root page. If an user is not looged into idp (sso has not been performed yet), it shows a link to `saml2/login/` from where sp will instantiate an auth request towards idp. If an user is already logged into idp (sso already performed) it will show some user's info.
+`saml2/login/` | views.login | This view initiates the SAML2 Authorization handshake. It will create a SAMLRequest and redirect these data to the _idp sso entry page_ `/idp/sso/post`, from there user will be redirected to idp login process page `idp/login/process/` where idp auth process will be performed (an auth SamlResponse will be created and redirected to sp acs `saml2/acs/`). If an user is not logged into idp when contacting `idp/login/process/` it will be before redirected to django idp login page `/login/?next=/idp/login/process/` and after that auth he will be redirected again to `idp/login/process/` and sso will continue (SamlResponse sent to sp acs `saml2/acs/`)
 `saml2/acs/` | views.assertion_consumer_service | SAML Authorization Response endpoint. The IdP will send its response to this view (SamlResponse coming from `idp/login/process/`)
 `saml2/logout/` | views.logout | ...
 `saml2/ls/` | views.logout_service | ...
