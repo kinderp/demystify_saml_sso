@@ -63,6 +63,10 @@ idp instnace user [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp
 
 In plus, each instance has its own url. Below a summary.
 
+Url | View | Description |
+------------ | ------------- | -------------
+`/` |  | ...
+
 
 Url | View | Description |
 ------------ | ------------- | -------------
