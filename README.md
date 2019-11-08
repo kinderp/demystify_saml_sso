@@ -76,13 +76,14 @@ Url | View | Description |
 2. open this trace file with [wireshark](https://www.wireshark.org/)
 3. apply this visualization filter just to show only saml sso packs `http and (tcp.port eq 9000 or tcp.port eq 8000)`
 
-You should se something like that
+You should see something like that
 
 ![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/wireshark.png)
 
-Just one note to follow saml flow in wireshark and on this README:
-* Each row has an unique id (first wireshark column: `No.`). 
-* So e.g. if `No.`=481 it will be referred here as `#trace481`
+Just one note to follow correctly saml flow in wireshark and on this README:
+
+* Each row has an unique id (first wireshark column: `No.` at the top left of the window). 
+* So e.g. if `No.`=481 that row on the screen will be referred here as `#trace481`
 
 ## trace#481 GET http://localhost:8000/saml2/login/
 
