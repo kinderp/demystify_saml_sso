@@ -5,13 +5,60 @@ docs, notes, links and adventures about saml sso
 
 We're gonna use this [project](https://github.com/OTA-Insight/djangosaml2idp/tree/master/example_setup) as test lab.
 
-It give us a trivial sp and idp implementations that we'll use for test and study saml sso.
+It gives us a trivial sp and idp implementations that we'll use for test and study saml sso.
 
 See its [README](https://github.com/OTA-Insight/djangosaml2idp/blob/master/example_setup/README.rst) in order to run those two instances (idp,sp) in a docker env.
 
+## Urls
+
+* sp.urls
+    ```python
+    urlpatterns = [
+        path('logout/', auth_views.LogoutView.as_view()),
+        path('saml2/', include('djangosaml2.urls')),
+        path('', views.IndexView.as_view()),
+    ]
+    ```
+* djangosaml2.urls
+    ```python
+    urlpatterns = [
+        url(r'^login/$', views.login, name='saml2_login'),
+        url(r'^acs/$', views.assertion_consumer_service, name='saml2_acs'),
+        url(r'^logout/$', views.logout, name='saml2_logout'),
+        url(r'^ls/$', views.logout_service, name='saml2_ls'),
+        url(r'^ls/post/$', views.logout_service_post, name='saml2_ls_post'),
+        url(r'^metadata/$', views.metadata, name='saml2_metadata'),
+    ]
+    ```
+
+* idp.urls
+    ```python
+    urlpatterns = [
+        path('idp/', include('djangosaml2idp.urls', namespace='djangosaml2')),
+        path('login/', auth_views.LoginView.as_view(template_name='idp/login.html'), name='login'),
+        path('logout/', auth_views.LogoutView.as_view()),
+        path('admin/', admin.site.urls),
+        path('', views.IndexView.as_view()),
+    ]
+    ```
+* djangosaml2idp.urls
+    ```python
+    urlpatterns = [
+        path('sso/post', views.sso_entry, name="saml_login_post"),
+        path('sso/redirect', views.sso_entry, name="saml_login_redirect"),
+        path('sso/init', views.SSOInitView.as_view(), name="saml_idp_init"),
+        path('login/process/', views.LoginProcessView.as_view(), name='saml_login_process'),
+        path('login/process_multi_factor/', views.ProcessMultiFactorView.as_view(), name='saml_multi_factor'),
+        path('metadata/', views.metadata, name='saml2_idp_metadata'),
+    ]
+    ```
+
+
 sp instance uses [djangosaml2](https://github.com/knaperek/djangosaml2/) urls to provide sp functionalties
+
 idp instnace user [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp) urls to provide idp functionalities
 
+In plus, each instance has its own url. Below a summary.
 
 
 
