@@ -63,7 +63,7 @@ In plus, each instance has its own url. Below a summary.
 
 Url | View | Description |
 ------------ | ------------- | -------------
-`/` | views.IndexView | It's sp login page. If an user is not logged in idp portal it shows a link `saml2/login/` that will redirect to idp login page `/login/?next=/idp/login/process/` otherwise it shows user's page into sp portal.
+`/` | views.IndexView | It's sp login page. It shows a link `saml2/login/` that will redirect to idp login page `/login/?next=/idp/login/process/`. 
 `saml2/login/` | views.login | This view initiates the SAML2 Authorization handshake. It will create a SAMLRequest and redirect these data to the _idp sso entry page_ `/idp/sso/post`, from there user will be redirected to idp login process page `idp/login/process/` where idp auth process will be performed (an auth SamlResponse will be created and redirected to sp acs `saml2/acs/`)
 `saml2/acs/` | views.assertion_consumer_service | ...
 `saml2/logout/` | views.logout | ...
