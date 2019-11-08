@@ -64,7 +64,8 @@ In plus, each instance has its own url. Below a summary.
 Url | View | Description |
 ------------ | ------------- | -------------
 `/` | views.IndexView | It's sp login page. It shows a link `saml2/login/` that will redirect to idp login page `/login/?next=/idp/login/process/`. 
-`saml2/login/` | views.login | This view initiates the SAML2 Authorization handshake. It will create a SAMLRequest and redirect these data to the _idp sso entry page_ `/idp/sso/post`, from there user will be redirected to idp login process page `idp/login/process/` where idp auth process will be performed (an auth SamlResponse will be created and redirected to sp acs `saml2/acs/`)
+`saml2/login/` | views.login | This view initiates the SAML2 Authorization handshake. It will create a SAMLRequest and redirect these data to the _idp sso entry page_ `/idp/sso/post`, from there user will be redirected to idp login process page `idp/login/process/` where idp auth process will be performed (an auth SamlResponse will be created and redirected to sp acs `saml2/acs/`). If an user is not logged into idp when contacting `idp/login/process/` it will be before redirected to django idp login page `/login/?next=/idp/login/process/` and after that auth it will be redirected again to `idp/login/process/`
+and sso will continue (SamlResponse sent to sp acs `saml2/acs/`)
 `saml2/acs/` | views.assertion_consumer_service | ...
 `saml2/logout/` | views.logout | ...
 `saml2/ls/` | views.logout_service | ...
