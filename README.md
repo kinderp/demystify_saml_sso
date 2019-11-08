@@ -2,7 +2,7 @@
 docs, notes, links and adventures about saml sso
 ## Intro
 
-To have a quick idea about saml sso works let's take a look at [this useful video](https://www.youtube.com/watch?v=S9BpeOmuEz4&t=661s)
+To have a quick idea on how saml sso works, let's take a look at [this useful video](https://www.youtube.com/watch?v=S9BpeOmuEz4&t=661s)
 
 ## Lab
 
