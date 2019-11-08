@@ -245,3 +245,40 @@ docs, notes, links and adventures about saml sso
 
     </html>
     ```
+
+## trace#670 HTTP/1.1 200 OK
+  
+  ```html
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>SP</title>
+    </head>
+
+    <body>
+        <p>-- @ Service Provider --</p>
+            <p>LOGGED IN -  <a href=/logout/>LOGOUT</a></p>
+            <ul>
+                <li>date_joined: Nov. 6, 2019, 3:38 p.m.</li>
+                <li>email: a.caristia@gmail.com</li>
+                <li>first_name: </li>
+                <li>groups: auth.Group.None</li>
+                <li>id: 1</li>
+                <li>is_active: True</li>
+                <li>is_staff: True</li>
+                <li>is_superuser: True</li>
+                <li>last_login: Nov. 7, 2019, 8:11 a.m.</li>
+                <li>last_name: </li>
+                <li>password: !CUp4QV3hrpVXqgNwFpifyogqeOgfqGdoz0FPCUr0</li>
+                <li>user_permissions: auth.Permission.None</li> 
+                <li>username: antonio</li>
+            </ul>
+
+
+    </body>
+
+    </html>
+```
