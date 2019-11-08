@@ -108,6 +108,44 @@ docs, notes, links and adventures about saml sso
         return HttpResponse(http_args['data'])
   ```
   
+  (Pdb) resp_args
+  ```python
+    {
+     'in_response_to': 'id-ZN3HmAzSlq06ZYNGA', 
+     'sp_entity_id': 'http://localhost:8000/saml2/metadata/', 
+     'name_id_policy':   <saml2.samlp.NameIDPolicy object at 0x7fdd4908d128>, 
+     'binding': 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST', 
+     'destination': 'http://localhost:8000/saml2/acs/'
+     }
+  ```
+  
+  (Pdb) http_args
+  ```python
+  'headers': [('Content-type', 'text/html')], 
+  'data': '<!DOCTYPE html>\n
+           <html>\n  
+                <head>\n    
+                    <meta charset="utf-8" />\n  
+                </head>\n  
+                <body onload="document.forms[0].submit()">\n    
+                    <noscript>\n      
+                        <p>\n        
+                        <strong>Note:</strong>\n        
+                            Since your browser does not support JavaScript,\n        
+                            you must press the Continue button once to proceed.\n      
+                        </p>\n    
+                    </noscript>\n    
+                    <form action="http://localhost:8000/saml2/acs/" method="post">\n      
+                        <input type="hidden" name="SAMLResponse" value="PD94bWwgdmVyc....."/>\n      
+                        <input type="hidden" name="RelayState" value="/"/>\n      
+                            <noscript>\n        
+                                <input type="submit" value="Continue"/>\n      
+                            </noscript>\n    
+                    </form>\n  
+               </body>\n
+            </html>', 
+    'url': 'http://localhost:8000/saml2/acs/', 'method': 'POST'}
+  ```
 ## trace#514 GET /login/?next=/idp/login/process/
 
   
