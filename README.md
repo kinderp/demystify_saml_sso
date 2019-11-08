@@ -1,6 +1,21 @@
 # demystify_saml_sso
 docs, notes, links and adventures about saml sso
 
+## Lab
+
+We're gonna use this [project](https://github.com/OTA-Insight/djangosaml2idp/tree/master/example_setup) as test lab.
+
+It give us a trivial sp and idp implementations that we'll use for test and study saml sso.
+
+See its [README](https://github.com/OTA-Insight/djangosaml2idp/blob/master/example_setup/README.rst) in order to run those two instances (idp,sp) in a docker env.
+
+sp instance uses [djangosaml2](https://github.com/knaperek/djangosaml2/) urls to provide sp functionalties
+idp instnace user [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp) urls to provide idp functionalities
+
+
+
+
+
 ## trace#481 GET http://localhost:8000/saml2/login/
 
 * [link](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L85)
