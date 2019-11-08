@@ -195,5 +195,53 @@ docs, notes, links and adventures about saml sso
     ```
   
   
+  ## trace#666 POST http://localhost:8000/
   
-  
+* [link](https://github.com/OTA-Insight/djangosaml2idp/blob/919f9b522a26a9300b5322658ff6869e41ef1b0c/example_setup/sp/sp/views.py#L8)
+    
+    ```python
+    class IndexView(TemplateView):
+    template_name = "sp/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context.update({
+            "logout_url": settings.LOGOUT_URL,
+            "login_url": settings.LOGIN_URL,
+        })
+        if self.request.user.is_authenticated:
+            context.update({
+                "user_attrs": sorted([(field.name, getattr(self.request.user, field.name)) for field in self.request.user._meta.get_fields() if field.concrete]),
+            })
+        return context
+    ```
+
+
+    ```html
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>SP</title>
+    </head>
+
+    <body>
+        <p>-- @ Service Provider --</p>
+        {% if request.user.is_authenticated %}
+            <p>LOGGED IN -  <a href={{ logout_url }}>LOGOUT</a></p>
+            <ul>
+            {% for k, v in user_attrs %}
+                <li>{{k}}: {{v}}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>LOGGED OUT - <a href={{ login_url }}>LOGIN</a></p>
+        {% endif %}
+
+    </body>
+
+    </html>
+    ```
