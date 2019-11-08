@@ -125,7 +125,7 @@ docs, notes, links and adventures about saml sso
   'data': '<!DOCTYPE html>
            <html>
                 <head>
-                    <meta charset="utf-8" />\n  
+                    <meta charset="utf-8" />
                 </head>
                 <body onload="document.forms[0].submit()">
                     <noscript>
