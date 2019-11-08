@@ -70,7 +70,15 @@ Url | View | Description |
 `saml2/ls/` | views.logout_service | ...
 `saml2/lspost/` | views.logout_service_post | ...
 
+# SP Initiated
 
+1. download [sp initiated trace](https://github.com/kinderp/demystify_saml_sso/blob/master/traces/trace_sp_initiated.pcapng) 
+2. open this trace file with [wireshark](https://www.wireshark.org/)
+3. apply this visualization filter just to show only saml sso packs `http and (tcp.port eq 9000 or tcp.port eq 8000)`
+
+You should se something like that
+
+![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/wireshark.png)
 ## trace#481 GET http://localhost:8000/saml2/login/
 
 * [link](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L85)
