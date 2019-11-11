@@ -390,7 +390,7 @@ That route is managed by this [assertion_consumer_service](https://github.com/kn
 
 It uses `NameID` field's value in [SampResponse]() to autheticate the incoming request session on django. ù
 
-Do exist some [settings](https://github.com/knaperek/djangosaml2#id8) in djangosaml2 in order to customize auth behaviour. Basically it will use `NameID` to autheticate the request using `django.contrib.auth.models.User` model and you can customize the meaning of `NamedID`:
+Do exist some [settings](https://github.com/knaperek/djangosaml2#user-attributes) in djangosaml2 in order to customize auth behaviour. Basically it will use `NameID` to autheticate the request using `django.contrib.auth.models.User` model and you can customize the meaning of `NamedID`:
 
 ```
 When such assertion (SamlResponse) is received on the Django side it is used to find a Django user and create a session for it. By default djangosaml2 will do a query on the User model with the USERNAME_FIELD attribute but you can change it to any other attribute of the User model. For example, you can do this lookup using the 'email' attribute. In order to do so you should set the following setting:
