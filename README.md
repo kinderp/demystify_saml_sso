@@ -418,6 +418,8 @@ Before some infos to understand better  [assertion_consumer_service](https://git
 
 1. `request.POST['SAMLResponse']` contains SampResponse from coming from IDP. It is signed and base64 encoded
 2. `session_info`
+
+
         ```
         (Pdb) session_info
         {'ava': {'email': ['a.caristia@gmail.com'], 
