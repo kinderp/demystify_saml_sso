@@ -470,7 +470,7 @@ See [here](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/) for i
 
 You can start from [djangosaml2.backends.Saml2Backend](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/backends.py#L62) in order to create your own csod saml auth backend.
 
-## SampResponse
+## SamlResponse
 
 ```xml
 <?xml version="1.0"?>
