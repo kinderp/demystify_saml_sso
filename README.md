@@ -416,7 +416,7 @@ SAML_USE_NAME_ID_AS_USERNAME = True
 
 Justo some infos to understand better  [assertion_consumer_service](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243) code.
 
-1. `request.POST['SAMLResponse']` contains SampResponse from coming from IDP. It is signed and base64 encoded. [Here](https://github.com/kinderp/demystify_saml_sso/blob/master/README.md#sampresponse) an example of unsigned and decoded SampResponse.
+1. `request.POST['SAMLResponse']` contains SamlResponse from coming from IDP. It is signed and base64 encoded. [Here](https://github.com/kinderp/demystify_saml_sso/blob/master/README.md#sampresponse) an example of unsigned and decoded SamlResponse.
 2. `session_info` contains all the siblings of `AttributeStatement`
 
     ```xml
@@ -464,7 +464,8 @@ Justo some infos to understand better  [assertion_consumer_service](https://gith
                                ],     
                  'session_index': 'id-IBJG4n9KkppkO6CJB'
          }
-        
+      
+3. a
 
 ## SampResponse
 
