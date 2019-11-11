@@ -388,7 +388,7 @@ SP's ACS link `http://localhost:8000/saml2/acs/` accepts SamlResponse generated 
 
 That route is managed by this [assertion_consumer_service](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243) view.
 
-It uses `Name`
+It uses `NameID` field's value in [SampResponse]() to autheticate the incoming request session on django. 
 
 
 ## SampResponse
