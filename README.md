@@ -63,7 +63,9 @@ sp instance uses [djangosaml2](https://github.com/knaperek/djangosaml2/) urls to
 
 idp instnace uses [djangosaml2idp](https://github.com/OTA-Insight/djangosaml2idp) urls to provide idp functionalities
 
-In plus, each instance has its own url. Below a summary.
+In plus, each instance has its own urls. Below a summary.
+
+### IDP urls summary
 
 Url | View | Description |
 ------------ | ------------- | -------------
@@ -75,6 +77,8 @@ Url | View | Description |
 `idp/login/process_multi_factor/` |  | ...
 `idp/metadata/` |  | ...
 
+
+### SP urls summary
 
 Url | View | Description |
 ------------ | ------------- | -------------
