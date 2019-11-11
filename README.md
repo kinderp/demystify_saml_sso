@@ -418,7 +418,7 @@ Before some infos to understand better  [assertion_consumer_service](https://git
 
 1. `request.POST['SAMLResponse']` contains SampResponse from coming from IDP. It is signed and base64 encoded
 2. `session_info`
-        ```json
+        ```
         (Pdb) session_info
         {'ava': {'email': ['a.caristia@gmail.com'], 
                  'first_name': [''], 
@@ -432,7 +432,6 @@ Before some infos to understand better  [assertion_consumer_service](https://git
                  'authn_info': [('urn:oasis:names:tc:SAML:2.0:ac:classes:Password', [], '2019-11-11T14:14:15Z')],     
                  'session_index': 'id-IBJG4n9KkppkO6CJB'
          }
-
         ```
 
 ## SampResponse
