@@ -417,10 +417,38 @@ SAML_USE_NAME_ID_AS_USERNAME = True
 Before some infos to understand better  [assertion_consumer_service](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243) code.
 
 1. `request.POST['SAMLResponse']` contains SampResponse from coming from IDP. It is signed and base64 encoded
-2. `session_info`
+2. `session_info` contains all the siblings of ``
+
+    ```xml
+        <ns1:AttributeStatement>
+            <ns1:Attribute FriendlyName="email" Name="urn:oid:1.2.840.113549.1.9.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                <ns1:AttributeValue
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">a.caristia@gmail.com
+                </ns1:AttributeValue>
+            </ns1:Attribute>
+            <ns1:Attribute Name="first_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                <ns1:AttributeValue
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string"/>
+                </ns1:Attribute>
+                <ns1:Attribute Name="last_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                    <ns1:AttributeValue
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string"/>
+                    </ns1:Attribute>
+                    <ns1:Attribute Name="is_staff" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <ns1:AttributeValue
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true
+                        </ns1:AttributeValue>
+                    </ns1:Attribute>
+                    <ns1:Attribute Name="is_superuser" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <ns1:AttributeValue
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:boolean">true
+                        </ns1:AttributeValue>
+                    </ns1:Attribute>
+                </ns1:AttributeStatement>
+    ```
 
 
-        ```
+        
         (Pdb) session_info
         {'ava': {'email': ['a.caristia@gmail.com'], 
                  'first_name': [''], 
@@ -434,7 +462,7 @@ Before some infos to understand better  [assertion_consumer_service](https://git
                  'authn_info': [('urn:oasis:names:tc:SAML:2.0:ac:classes:Password', [], '2019-11-11T14:14:15Z')],     
                  'session_index': 'id-IBJG4n9KkppkO6CJB'
          }
-        ```
+        
 
 ## SampResponse
 
