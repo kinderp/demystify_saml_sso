@@ -390,7 +390,7 @@ That route is managed by this [assertion_consumer_service](https://github.com/kn
 
 It uses `NameID` field's value in [SampResponse](https://github.com/kinderp/demystify_saml_sso/blob/master/README.md#sampresponse) to autheticate the incoming request session on django.
 
-Do exist some [settings](https://github.com/knaperek/djangosaml2#user-attributes) in djangosaml2 in order to customize auth behaviour. Basically it will use `NameID` to autheticate the request using `django.contrib.auth.models.User` model and you can customize the meaning of `NamedID`:
+Do exist some [settings](https://github.com/knaperek/djangosaml2#user-attributes) in djangosaml2 in order to customize auth behaviour. Basically it will use `NameID` to autheticate the request using `django.contrib.auth.models.User` model and you can customize the meaning of `NamedID`, below some examples coming from [settings](https://github.com/knaperek/djangosaml2#user-attributes)
 
 ```
 When such assertion (SamlResponse) is received on the Django side 
@@ -409,6 +409,8 @@ SAML_DJANGO_USER_MAIN_ATTRIBUTE_LOOKUP = '__iexact'
 ```
 
 ```
+Another option is to use the SAML2 name id as the username by setting:
+
 SAML_USE_NAME_ID_AS_USERNAME = True
 ```
 
