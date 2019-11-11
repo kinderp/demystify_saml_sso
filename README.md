@@ -414,6 +414,27 @@ Another option is to use the SAML2 name id as the username by setting:
 SAML_USE_NAME_ID_AS_USERNAME = True
 ```
 
+Before some infos to understand better  [assertion_consumer_service](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243) code.
+
+1. `request.POST['SAMLResponse']` contains SampResponse from coming from IDP. It is signed and base64 encoded
+2. `session_info`
+        ```json
+        (Pdb) session_info
+        {'ava': {'email': ['a.caristia@gmail.com'], 
+                 'first_name': [''], 
+                 'last_name': [''], 
+                 'is_staff': ['true'], 
+                 'is_superuser': ['true']}, 
+                 'name_id': <saml2.saml.NameID object at 0x7fed6f2631d0>, 
+                 'came_from': None, 
+                 'issuer': 'http://localhost:9000/idp/metadata', 
+                 'not_on_or_after': 1573485255, 
+                 'authn_info': [('urn:oasis:names:tc:SAML:2.0:ac:classes:Password', [], '2019-11-11T14:14:15Z')],     
+                 'session_index': 'id-IBJG4n9KkppkO6CJB'
+         }
+
+        ```
+
 ## SampResponse
 
 ```xml
