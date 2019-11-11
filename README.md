@@ -388,8 +388,17 @@ SP's ACS link `http://localhost:8000/saml2/acs/` accepts SamlResponse generated 
 
 That route is managed by this [assertion_consumer_service](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L243) view.
 
-It uses `NameID` field's value in [SampResponse]() to autheticate the incoming request session on django. 
+It uses `NameID` field's value in [SampResponse]() to autheticate the incoming request session on django. ù
 
+Do exist some [settings](https://github.com/knaperek/djangosaml2#id8) in djangosaml2 in order to customize auth behaviour. Basically it will use `NameID` to autheticate the request using `django.contrib.auth.models.User` model and you can customize the meaning of `NamedID`:
+
+```
+SAML_DJANGO_USER_MAIN_ATTRIBUTE = 'email'
+
+SAML_DJANGO_USER_MAIN_ATTRIBUTE_LOOKUP = '__iexact'
+
+SAML_USE_NAME_ID_AS_USERNAME = True
+```
 
 ## SampResponse
 
