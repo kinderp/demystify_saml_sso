@@ -466,7 +466,9 @@ Justo some infos to understand better  [assertion_consumer_service](https://gith
          }
       
 3. It uses a custom auth backend `djangosaml2.backends.Saml2Backend` defined [here](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/backends.py#L62)
-See [here](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/) for info about django custom auth backend
+See [here](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/) for info about django custom auth backend.
+
+You can start from [djangosaml2.backends.Saml2Backend](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/backends.py#L62) in order to create your own csod saml auth backend.
 
 ## SampResponse
 
