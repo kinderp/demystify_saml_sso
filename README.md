@@ -106,6 +106,13 @@ Just one note to follow correctly saml flow in wireshark and on this README:
 
 ## SP initiated flow
 
+* [#481](https://github.com/kinderp/demystify_saml_sso#trace481-get-httplocalhost8000saml2login)
+* [#498](https://github.com/kinderp/demystify_saml_sso#trace498-post-httplocalhost8000idpssopost)
+* [#506](https://github.com/kinderp/demystify_saml_sso#trace506-get-httplocalhost8000idploginprocess)
+* [#656](https://github.com/kinderp/demystify_saml_sso#trace656-post-httplocalhost8000saml2acs)
+* [#666](https://github.com/kinderp/demystify_saml_sso#trace666-post-httplocalhost8000)
+* [#670](https://github.com/kinderp/demystify_saml_sso#trace670-http11-200-ok)
+
 ![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/sp_initiated_sequence_diagram.jpg)
 
 ## trace#481 GET http://localhost:8000/saml2/login/
