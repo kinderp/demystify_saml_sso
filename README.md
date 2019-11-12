@@ -104,6 +104,10 @@ Just one note to follow correctly saml flow in wireshark and on this README:
 * Each row has an unique id (first wireshark column: `No.` at the top left of the window). 
 * So e.g. if `No.`=481 that row on the screen will be referred here as `#trace481`
 
+## SP initiated flow
+
+![](https://github.com/kinderp/demystify_saml_sso/blob/master/images/sp_initiated_sequence_diagram.jpg)
+
 ## trace#481 GET http://localhost:8000/saml2/login/
 
 * [link](https://github.com/knaperek/djangosaml2/blob/643969701d3b4257a8d64c5c577602ebaa61de70/djangosaml2/views.py#L85)
