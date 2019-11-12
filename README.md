@@ -587,3 +587,41 @@ FtkEE9DNz0yqaMwDaFDFhQ==</ns2:SignatureValue>
             </ns1:Assertion>
         </ns0:Response>
 ```
+
+## SamlRequest
+
+```xml
+<?xml version="1.0"?>
+<ns0:AuthnRequest
+    xmlns:ns0="urn:oasis:names:tc:SAML:2.0:protocol"
+    xmlns:ns1="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" AssertionConsumerServiceURL="http://localhost:8000/saml2/acs/" Destination="http://localhost:9000/idp/sso/post" ID="id-DRtZzZYKzPEpuy1Uf" IssueInstant="2019-11-06T15:38:05Z" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Version="2.0">
+    <ns1:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">http://localhost:8000/saml2/metadata/</ns1:Issuer>
+    <ns2:Signature Id="Signature1">
+        <ns2:SignedInfo>
+            <ns2:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+            <ns2:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+            <ns2:Reference URI="#id-DRtZzZYKzPEpuy1Uf">
+                <ns2:Transforms>
+                    <ns2:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                    <ns2:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                </ns2:Transforms>
+                <ns2:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                <ns2:DigestValue>SZcq30Uk5/yGT8otb4UguS7hRpA=</ns2:DigestValue>
+            </ns2:Reference>
+        </ns2:SignedInfo>
+        <ns2:SignatureValue>fX4d3qvGlThvsq8CyXfNsVGH9TzTvF+XxzvhTGSIN0wij35b0rbWrnaLcTANp4VL
+o8e/j+mduhS6JsdRN0haH+ZQbQ4Qsn22t7CElNXJyODfyLMO/T11KPRieGFxG9Mp
+6IGMTuo/Yz/EpxymQSWmZjqtCo82r2KhVcKwRMkA2XFxt6+7R2O3CT8hu5IPn/3J
+ZXANDD8EzyrZEsTHWfDDeZ8TyhsJNJvB3Jni/MP90A0Q687EgZXFmH9CIoo1XlkI
+RAxI+t+/UCgaeV72+NAmsjsSPNAflHX2knKRPGhk6fGTYakH0hiQQKrX05If6jHY
+dlr5v/aCyKWM7jm30E5j+A==</ns2:SignatureValue>
+        <ns2:KeyInfo>
+            <ns2:X509Data>
+                <ns2:X509Certificate>MIIDCTCCAfGgAwIBAgIJAL6KBRFZctKRMA0GCSqGSIb3DQEBCwUAMBsxGTAXBgNVBAMMEHNwLmxvY2FsaG9zdC5jb20wHhcNMTgwODA4MTgxNzQ1WhcNMjgwODA1MTgxNzQ1WjAbMRkwFwYDVQQDDBBzcC5sb2NhbGhvc3QuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnWvPHrAXZ8S5TrrPwPk744sQqIh8x8tX+PGtJpZJOidAVnB5vGnZZa5rvu6Es+M15CAD+cz1GAsBegAz4FVP12I3anotCwnbnb0BvdrCD8zVBeMfq8MhWFLm09HoAh7STWyDi0+0BAgCFPyCvfBvNK5j9N0HyJeMLDnju7PWAAHr7rget5FNw6NWxfjlJiowSPpqVfTSjJcKTcByttnmLn8MPs5N5YhPX2CqFWnn3mzl/s7Xc3AQH7xCHGfQX738060vkm72ufPIKi9+onABHJYMx3p5TI9j/O7g06YoypB4k839odCCyoxcfsJwjKGrZnvEB5Eo8ZQJbd3kfSLu5QIDAQABo1AwTjAdBgNVHQ4EFgQUEC1n3lbl5TZO9gjy4VeOuKvtqTswHwYDVR0jBBgwFoAUEC1n3lbl5TZO9gjy4VeOuKvtqTswDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAKNPZhQA3028/tGF51RW8vBeHBry2AxSF3ZCgdZwszFMV6ls6/9ZwbYHE+yN2ehNXTxdOfbZIy90Vy0UHMfJk3syKPxQeAM7/1udWk53UfXbwWuyhwUSdDh02H8oXORMcM2MOj5Cl/qcW5X7dbhFkgzRfyTAebonhe8CSfN7uXGgkzO8ft7ndk1uK2hKL5VWH1e/gTegFYm/CMjB/Cwhr+226oz1bjulbU4VJ+RUkrlV6+puCcyBhcv8ZR3f6YAGHzsUt7RNjLeyEuqquA1QbwmlkfeV9NOO9aBpbA5SQc+43CunQe1rLsWoIpCcjSmxYH1qVD7tHLhI7yBqPv5RQUA==</ns2:X509Certificate>
+            </ns2:X509Data>
+        </ns2:KeyInfo>
+    </ns2:Signature>
+    <ns0:NameIDPolicy AllowCreate="false" Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"/>
+</ns0:AuthnRequest>
+```
